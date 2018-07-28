@@ -15,17 +15,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/index.htm")
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String VIEW = "index.jsp";
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	private static final String VIEW = "/WEB-INF/JSP/index.jsp";
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int uur = LocalDateTime.now().getHour();
 		request.setAttribute("begroeting", uur >= 6 && uur < 12 ? "Goede morgen" :
 		uur >= 12 && uur < 18 ? "Goede middag": "Goede avond");
 		request.getRequestDispatcher(VIEW).forward(request, response);
-		
-		
 	}
 
 }
