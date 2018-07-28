@@ -2,6 +2,7 @@ package be.vdab;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.servlet.ServletException;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class IndexServlet
  */
-@WebServlet("/index.htm")
+//@WebServlet("/index.htm")
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -27,10 +28,14 @@ public class IndexServlet extends HttpServlet {
 		out.println("<html lang='nl'><head>");
 		out.println("<title>Pizza Luigi</title></head>");
 		out.println("<body><h1>");
-		int uur = LocalDateTime.now().getHour();
-		out.print(uur >= 6 && uur < 12 ? "Goede morgen" :
-		uur >= 12 && uur < 18 ? "Goede middag": "Goede avond");
+		//int uur = LocalDateTime.now().getHour();
+		//out.print(uur >= 6 && uur < 12 ? "Goede morgen!!!" :
+		//uur >= 12 && uur < 18 ? "Goede middag": "Goede avond");
+		int dag = LocalDate.now().getDayOfWeek().getValue();
+		out.print(dag == 1 || dag == 4 ? "Vandaag zijn we gesloten!" :
+			"Vandaag zijn we open!");
 		out.println("</h1></body></html>");
+		
 		
 	}
 
