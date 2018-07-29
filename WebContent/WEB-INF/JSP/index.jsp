@@ -16,5 +16,14 @@
 </h1>
 <img src='images/pizza.jpg' alt='pizza' class='fullwidth'>
 <h2>${begroeting}</h2>
+	<h2>De zaakvoerder</h2>
+<dl>
+<dt>Naam</dt><dd>${zaakvoerder.naam}</dd>
+<dt>Aantal kinderen</dt><dd>${zaakvoerder.aantalKinderen}</dd>
+<dt>Gehuwd</dt><dd>${zaakvoerder.gehuwd ? 'Ja' : 'Nee'}</dd>
+<dt>Adres</dt>
+<dd>${zaakvoerder.adres.straat} ${zaakvoerder.adres.huisNr}<br>
+${zaakvoerder.adres.gemeente.postcode} ${zaakvoerder.adres.gemeente.naam}</dd>
+</dl>
 </body>
 </html>
