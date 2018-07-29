@@ -1,7 +1,6 @@
 <%-- Een welkom pagina --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="false"%>
-<%@page import="java.time.LocalDateTime"%>    
 <!DOCTYPE html>
 <html lang="nl">
 <head>
