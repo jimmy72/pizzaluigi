@@ -29,5 +29,6 @@
 			${zaakvoerder.adres.gemeente.naam}
 		</dd>
 	</dl>
+	<div>Deze pagina werd ${aantalKeerBekeken} keer bekeken.</div>
 </body>
 </html>
