@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +22,14 @@ import be.vdab.entities.Pizza;
 public class PizzaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String VIEW = "/WEB-INF/JSP/pizzas.jsp";
+	private static final String PIZZAS_REQUESTS = "pizzasRequests";
+
+	
+	
+	@Override
+	public void init() throws ServletException {
+		this.getServletContext().setAttribute(PIZZAS_REQUESTS, new AtomicInteger());
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -28,7 +37,7 @@ public class PizzaServlet extends HttpServlet {
 //				Arrays.asList(new Pizza(12, "Prosciutto", BigDecimal.valueOf(4), true),
 //						new Pizza(14, "Margherita", BigDecimal.valueOf(5), false),
 //						new Pizza(17, "Calzone", BigDecimal.valueOf(4), false)));
-		
+		((AtomicInteger) this.getServletContext().getAttribute(PIZZAS_REQUESTS)).incrementAndGet();
 		Map<Long, Pizza> pizzas = new LinkedHashMap<>(); // keys zijn pizza ids
 		pizzas.put(12L, new Pizza(12, "Prosciutto", BigDecimal.valueOf(4), true));
 		pizzas.put(14L, new Pizza(14, "Margehrita", BigDecimal.valueOf(5), false));
