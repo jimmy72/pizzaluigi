@@ -30,5 +30,8 @@
 		</dd>
 	</dl>
 	<div>Deze pagina werd ${aantalKeerBekeken} keer bekeken.</div>
+	<div>WebMaster:
+		<a href="mailto:${emailAdresWebMaster}">${emailAdresWebMaster}</a>
+	</div>
 </body>
 </html>
