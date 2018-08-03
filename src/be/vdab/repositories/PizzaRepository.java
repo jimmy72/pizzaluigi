@@ -10,6 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 import be.vdab.entities.Pizza;
+import be.vdab.util.StringUtils;
 
 public class PizzaRepository {
 	private static final Map<Long, Pizza> PIZZAS = new ConcurrentHashMap<>();
@@ -32,10 +33,8 @@ public class PizzaRepository {
 	
 	public List<Pizza> findByPrijsBetween(BigDecimal van, BigDecimal tot) {
 		return PIZZAS.values().stream()
-		.filter(
-		pizza -> pizza.getPrijs().compareTo(van) >= 0 &&
-		pizza.getPrijs().compareTo(tot) <= 0)
-		.collect(Collectors.toList());
+				.filter(pizza -> pizza.getPrijs().compareTo(van) >= 0 && pizza.getPrijs().compareTo(tot) <= 0)
+				.collect(Collectors.toList());
 	}
 	
 	public void create(Pizza pizza) { // pizza toevoegen
