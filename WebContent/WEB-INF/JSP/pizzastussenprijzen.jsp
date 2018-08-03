@@ -13,17 +13,17 @@
 	<h1>Pizza's tussen prijzen</h1>
 	<form action="<c:url value='/pizzas/tussenprijzen.htm'></c:url>" method="get">
 		<label>Van prijs<span>${fouten.van}</span>
-		<input type="text" name='van' autofocus>
+		<input name='van' autofocus type="number" min="0" required>
 		</label> 
 		<label>Tot prijs<span>${fouten.tot}</span>
-			<input type="text" name='tot'>
+			<input name='tot' type="number" min="0" required>
 		</label> 
 		<input type='submit' value='Zoeken'>
 	</form>
 	<c:if test='${not empty pizzas}'>
 		<ul class='zebra'>
 			<c:forEach var='pizza' items='${pizzas}'>
-				<li><c:out value='${pizza.naam}' /> ${pizza.prijs}&euro;</li>
+				<li><c:out value='${pizza.naam}'></c:out>&nbsp;${pizza.prijs}&euro;</li>
 			</c:forEach>
 		</ul>
 	</c:if>
