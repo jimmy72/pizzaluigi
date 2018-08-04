@@ -13,10 +13,10 @@
 	<h1>Pizza's tussen prijzen</h1>
 	<form action="<c:url value='/pizzas/tussenprijzen.htm'></c:url>" method="get">
 		<label>Van prijs<span>${fouten.van}</span>
-		<input name='van' autofocus type="number" min="0" required>
+		<input name='van' value="${param.van}" autofocus type="number" min="0" required>
 		</label> 
 		<label>Tot prijs<span>${fouten.tot}</span>
-			<input name='tot' type="number" min="0" required>
+			<input name='tot' value="${param.tot}" type="number" min="0" required>
 		</label> 
 		<input type='submit' value='Zoeken'>
 	</form>
