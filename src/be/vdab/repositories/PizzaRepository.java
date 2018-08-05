@@ -42,4 +42,7 @@ public class PizzaRepository {
 		PIZZAS.put(pizza.getId(), pizza);
 	}
 	
+	public void delete(Long id) {
+		PIZZAS.remove(id);
+	}
 }
