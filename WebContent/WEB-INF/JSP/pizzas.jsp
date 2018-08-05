@@ -25,6 +25,10 @@
 				<c:param name="id" value="${pizza.id}"/>
 			</c:url>
 			<a href="<c:out value='${detailURL}'/>">Detail</a>	
+			<c:if test="${pizzaIdsMetFoto.contains(pizza.id)}">
+				<c:url value="/pizzafotos/${pizza.id}.jpg" var="fotoURL"></c:url>
+				<a href="${fotoURL}">Foto</a>
+			</c:if>
 			</li>
 		</c:forEach>
 	</ul>
