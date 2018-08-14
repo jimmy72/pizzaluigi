@@ -35,6 +35,7 @@ public class PizzaServlet extends HttpServlet {
 			throws ServletException, IOException {
 		((AtomicInteger) this.getServletContext().getAttribute(PIZZAS_REQUESTS)).incrementAndGet();
 		List<Pizza> pizzas = pizzaRepository.findAll();
+		request.setAttribute("mijnurl", pizzaFotosPad);
 		request.setAttribute("pizzas", pizzas);
 		request.setAttribute("pizzaIdsMetFoto",
 		pizzas.stream()

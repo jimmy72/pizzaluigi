@@ -17,5 +17,7 @@
 		<dt>Pizzas pagina aantal keren bekeken:</dt>
 		<dd>${pizzasRequests}</dd>
 	</dl>
+	<div>${aantalMandjes} mandje(s)</div>
+	<div>De url: ${url} </div>
 </body>
 </html>

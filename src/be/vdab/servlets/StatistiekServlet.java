@@ -17,6 +17,8 @@ public class StatistiekServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String url = request.getRequestURI();
+		request.setAttribute("url", url);
 		request.getRequestDispatcher(VIEW).forward(request, response);
 	}
 

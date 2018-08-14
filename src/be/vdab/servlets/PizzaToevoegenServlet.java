@@ -60,9 +60,13 @@ public class PizzaToevoegenServlet extends HttpServlet {
 			if (fotoIsOpgeladen) {
 				String pizzaFotosPad = this.getServletContext().getRealPath("/pizzafotos"); 
 				fotoPart.write(pizzaFotosPad + "/" + String.valueOf(pizza.getId()) + ".jpg"); 
+				
 			}
+			
 			response.sendRedirect(request.getContextPath() + REDIRECT_URL);
 		} else {
+			String pizzaFotosPad = this.getServletContext().getRealPath("/pizzafotos");
+			request.setAttribute("mijnurl", pizzaFotosPad);
 			request.setAttribute("fouten", fouten);
 			request.getRequestDispatcher(VIEW).forward(request, response);
 		}
