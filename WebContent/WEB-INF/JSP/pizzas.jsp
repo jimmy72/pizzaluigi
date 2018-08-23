@@ -32,6 +32,5 @@
 			</li>
 		</c:forEach>
 	</ul>
-	<div>${mijnurl}</div>
 </body>
 </html>

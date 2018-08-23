@@ -19,25 +19,29 @@ public class MandjeListener implements ServletContextListener, HttpSessionAttrib
     }
 
 	
-    public void contextDestroyed(ServletContextEvent sce)  { 
+    @Override
+	public void contextDestroyed(ServletContextEvent sce)  { 
          // TODO Auto-generated method stub
     }
 
-    public void attributeAdded(HttpSessionBindingEvent event)  { 
+    @Override
+	public void attributeAdded(HttpSessionBindingEvent event)  { 
     	if (MANDJE.equals(event.getName())) { 
     		((AtomicInteger) event.getSession().getServletContext().getAttribute(AANTAL_MANDJES)).incrementAndGet(); 
     	}
     }
 
 	
-    public void attributeRemoved(HttpSessionBindingEvent event)  { 
+    @Override
+	public void attributeRemoved(HttpSessionBindingEvent event)  { 
     	if (MANDJE.equals(event.getName())) {
     		((AtomicInteger) event.getSession().getServletContext().getAttribute(AANTAL_MANDJES)).decrementAndGet(); 
     	}
     }
 
 	
-    public void attributeReplaced(HttpSessionBindingEvent se)  { 
+    @Override
+	public void attributeReplaced(HttpSessionBindingEvent se)  { 
          // TODO Auto-generated method stub
     }
 
